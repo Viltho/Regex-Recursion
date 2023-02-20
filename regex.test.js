@@ -4,27 +4,20 @@
 
 /* Write a function that take a string and return true if the string only contain uppercase and lowercase
 characters (no numbers and symbols) and it should end with capital A else return false */
-
-function capitalA(s){
+function capitalA(s) {
     // Add your logic.
-    
-    // if (/^[a-zA-Z]+$/.test(s)) {
-    //     // Check if the string ends with a capital A
-    //     if (s.endsWith('A')) {
-    //       return true;
-    //     }
-    //   }
-    //   return false;
+    let x = /^[A-Za-z ]+A$/;
+    return x.test(s);
 }
 
 
 /* Write a function that take a string and return true if the the sting is following the emails pattern
 which end with io (example@example.io) */
 
-function ioEmail(email){
+function ioEmail(email) {
     // Add your logic.
-    // const pattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.(io)$/i;
-    // return pattern.test(email);
+    const pattern = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+.io$/;
+    return pattern.test(email);
 }
 
 /* You have a text that contain image names with their extention you need to write a function to 
@@ -32,18 +25,15 @@ find all images in that text and return their names and extention in an array
 required extention are jpg, jpeg and png.
 */
 
-function imagesSearcher(text){
+function imagesSearcher(text) {
+    let arr = [];
     // Add your logic.
-    // const pattern = /([^\s]+(\.(jpg|jpeg|png)))/gi;
-    // const matches = text.match(pattern);
-    // if (matches) {
-    //   return matches.map((match) => match.split('/').pop());
-    // }
-    // return [];
+    const pattern = /^[a-zA-Z]+(.jpg|.jpeg|.png)$/g;
+    arr = text.split(" ").filter((e) => pattern.test(e));
+    return arr;
 }
 
-
-describe("Test capitalA", ()=>{
+describe("Test capitalA", () => {
     test("It should return true if the input has uppercase and lowercase characters (no numbers and symbols) and it should end with capital A else return false ", () => {
         expect(capitalA("Hello world A")).toStrictEqual(true);
 
