@@ -1,37 +1,56 @@
 
 /* Write a function to do the division operation without using the built-in division*/
-
-function division(number, dividedBy, answer = 0) {
+function division(number, dividedBy) {
     if (dividedBy === 0 || number === 0) {
-        return answer += 0; 
+        return 0; 
     } else if (number >= dividedBy) {
-        number -= dividedBy;
-        answer++;
-        return division(number, dividedBy, answer);
+        return 1 +  division((number-dividedBy), dividedBy);
     } else {
-        return answer;
+        return 0;
     }
 }
+// function division(number, dividedBy, answer = 0) {
+//     if (dividedBy === 0 || number === 0) {
+//         return answer += 0; 
+//     } else if (number >= dividedBy) {
+//         number -= dividedBy;
+//         answer++;
+//         return division(number, dividedBy, answer);
+//     } else {
+//         return answer;
+//     }
+// }
 
 /* Write a function that implement Math.pow(x,n) but using recursion
 Example:
 pow(2,4) = 16
 */
-
-
-function pow(x, n, answer = 1) {
+function pow(x, n) {
     // Write you logic here.
-    if (n === 0){
-        return answer += 0;
+    if (n === 0 || x === 0){
+        return 1;
     }
     else if (n > 0){
-        answer *= x;
-        n--;
-        return pow(x, n, answer);
-    } else {
-        return answer += 0;
+        return x * pow(x,--n);
+    } 
+    else {
+        return 1;
     }
 }
+
+// function pow(x, n, answer = 1) {
+//     // Write you logic here.
+//     if (n === 0){
+//         return answer += 0;
+//     }
+//     else if (n > 0){
+//         answer *= x;
+//         n--;
+//         return pow(x, n, answer);
+//     } else {
+//         return answer += 0;
+//     }
+// }
 
 /* The Fibonacci Series is a numeric series starting with the integers 0 and 1. In this series,
 the next integer is determined by summing the previous two. This gives us:
